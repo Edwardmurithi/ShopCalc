@@ -12,8 +12,9 @@ def totals_for_all_products(product_details):
 	return sum(total_for_each_product)
 
 def generate_shopping_summary(product_details):
-	for key, value in product_details.items():
-		totals_for_each = int(value[0]) * int(value[1])
+    for product, cost in product_details.items():
+        total_cost_each_product = int(cost[0]) * int(cost[1])
+        print(product, total_cost_each_product)
 
 def main():
 	# stores product details
@@ -37,10 +38,13 @@ def main():
 			break
 		store_product_details(product_details, product, price,quantity)
 
-	print("\n----------------------------------------")
-	print(f"TOTALS: {totals_for_all_products(product_details)}")
+	generate_shopping_summary(product_details)
+
+	#print("\n----------------------------------------")
+	#print(f"TOTALS: {totals_for_all_products(product_details)}")
+    
 
 if __name__ == '__main__':
-	main()
+    main()
 
 
